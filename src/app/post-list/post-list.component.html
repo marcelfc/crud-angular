@@ -17,9 +17,22 @@
         <td>{{ post.body }}</td>
         <td>
           <a [routerLink]="['/posts',post.id,'edit']"> <app-glyph icon="pencil"></app-glyph> </a> |
-          <a href="javascript:void(0)" (click)="destroy(post.id, i)"> <app-glyph icon="trash"></app-glyph> </a>
+          <a href="javascript:void(0)" (click)="openModal(post)"> <app-glyph icon="trash"></app-glyph> </a>
         </td>
       </tr>
     </tbody>
   </table>
+  <app-modal>
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">Mensagem de confirmação</h4>
+    </div>
+    <div class="modal-body" *ngIf="postToDelete">
+      <p> Deseja excluir esse post <strong>{{postToDelete.title}}</strong>?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary" (click)="destroy()"> Delete </button>
+    </div>
+  </app-modal>
 </div>
