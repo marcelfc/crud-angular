@@ -12,6 +12,7 @@ export class PostListComponent implements OnInit {
 
   posts: Array<any> = [];
   postToDelete = null;
+  message = null;
   @ViewChild(ModalComponent)
   modal: ModalComponent;
 

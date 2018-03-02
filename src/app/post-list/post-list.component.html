@@ -3,6 +3,14 @@
   <app-button color="danger" routerLink="/posts/create">
     <app-glyph icon="plus"></app-glyph> Criar
   </app-button>
+  <div class="row" *ngIf="message">
+    <app-alert color="danger" timeout="4000">
+      Olá
+    </app-alert>
+  </div>
+  <app-alert color="danger" timeout="4000">
+    Olá
+  </app-alert>
   <table class="table table-striped">
     <thead>
       <th>Id</th>
@@ -16,19 +24,26 @@
         <td>{{ post.title }}</td>
         <td>{{ post.body }}</td>
         <td>
-          <a [routerLink]="['/posts',post.id,'edit']"> <app-glyph icon="pencil"></app-glyph> </a> |
-          <a href="javascript:void(0)" (click)="openModal(post)"> <app-glyph icon="trash"></app-glyph> </a>
+          <a [routerLink]="['/posts',post.id,'edit']">
+            <app-glyph icon="pencil"></app-glyph>
+          </a> |
+          <a href="javascript:void(0)" (click)="openModal(post)">
+            <app-glyph icon="trash"></app-glyph>
+          </a>
         </td>
       </tr>
     </tbody>
   </table>
   <app-modal>
     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
       <h4 class="modal-title">Mensagem de confirmação</h4>
     </div>
     <div class="modal-body" *ngIf="postToDelete">
-      <p> Deseja excluir esse post <strong>{{postToDelete.title}}</strong>?</p>
+      <p> Deseja excluir esse post
+        <strong>{{postToDelete.title}}</strong>?</p>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

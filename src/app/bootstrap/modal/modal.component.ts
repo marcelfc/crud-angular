@@ -23,5 +23,5 @@ export class ModalComponent implements OnInit {
   close() {
     $(this.divModal.nativeElement).modal('hide');
   }
-  
+
 }
