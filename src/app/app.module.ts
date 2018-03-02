@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { PostService } from './services/post.service';
+import { MessageService } from './services/message.service';
 import { PostSaveComponent } from './post-save/post-save.component';
 import { ButtonComponent } from './bootstrap/button/button.component';
 import { GlyphComponent } from './bootstrap/glyph/glyph.component';
@@ -36,7 +37,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [PostService],
+  providers: [PostService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,16 +1,16 @@
 <div class="row">
   <h3> Listagem de Posts </h3>
-  <app-button color="danger" routerLink="/posts/create">
-    <app-glyph icon="plus"></app-glyph> Criar
-  </app-button>
-  <div class="row" *ngIf="message">
-    <app-alert color="danger" timeout="4000">
-      Olá
+  <div class="col-md-12">
+    <app-button color="primary" routerLink="/posts/create">
+      <app-glyph icon="plus"></app-glyph> Criar
+    </app-button>
+  </div>
+  <br/><br/>
+  <div class="col-md-12" *ngIf="message">
+    <app-alert color="success" timeout="4000">
+      {{message}}
     </app-alert>
   </div>
-  <app-alert color="danger" timeout="4000">
-    Olá
-  </app-alert>
   <table class="table table-striped">
     <thead>
       <th>Id</th>

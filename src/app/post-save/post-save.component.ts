@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { PostService } from '../services/post.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-post-save',
@@ -15,7 +16,12 @@ export class PostSaveComponent implements OnInit {
     title: '',
     body: ''
   };
-  constructor(private postService: PostService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private postService: PostService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private messageService: MessageService
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -26,7 +32,11 @@ export class PostSaveComponent implements OnInit {
   }
 
   save() {
-    this.postService.save(this.post).subscribe(() => this.router.navigate(['/posts']));
+    this.postService.save(this.post)
+      .subscribe(() => {
+        this.router.navigate(['/posts']);
+        this.messageService.message = 'Post Salvo com sucesso!';
+      });
   }
 
 }
